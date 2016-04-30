@@ -11,3 +11,9 @@ You will need:
 ```
 $ ./setup
 ```
+
+## Running
+
+```
+$ python scrape.py
+```

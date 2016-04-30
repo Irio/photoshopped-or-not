@@ -1,5 +1,3 @@
-# !pip install flickrapi
-
 import ConfigParser
 import flickrapi
 import numpy as np
