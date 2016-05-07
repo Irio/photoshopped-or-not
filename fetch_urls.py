@@ -23,15 +23,9 @@ file_headers = ['photo_id', 'url']
 flickr = flickr_api('config.ini')
 ids_dataset = load_dataset(ids_dataset_path, ['photo_id'])
 urls_dataset = load_dataset(urls_dataset_path, file_headers)
+remaining_ids = ids_dataset[~ids_dataset['photo_id'].isin(urls_dataset['photo_id'])]
 
-next_row = 0
-if len(urls_dataset) and len(ids_dataset):
-    latest_photo_id = urls_dataset.iloc[-1]['photo_id']
-    next_row = 1 + ids_dataset[ids_dataset['photo_id'] == latest_photo_id].index[0]
-    if len(ids_dataset) == next_row:
-        sys.exit()
-
-for index, photo in ids_dataset[next_row:].iterrows():
+for index, photo in remaining_ids.iterrows():
     url = None
     photo_id = str(photo['photo_id'])
     try:
