@@ -1,5 +1,6 @@
 import configparser
 import flickrapi
+import numpy as np
 import os.path
 import pandas as pd
 import sys
@@ -13,7 +14,8 @@ def flickr_api(settings_path):
 
 def load_dataset(file_path, headers):
     if os.path.exists(file_path):
-        return pd.read_csv(file_path)
+        dtype = dict(list(map(lambda x: (x, np.str), headers)))
+        return pd.read_csv(file_path, dtype=dtype)
     else:
         return pd.DataFrame(columns=headers)
 
@@ -23,9 +25,9 @@ file_headers = ['photo_id', 'url']
 flickr = flickr_api('config.ini')
 ids_dataset = load_dataset(ids_dataset_path, ['photo_id'])
 urls_dataset = load_dataset(urls_dataset_path, file_headers)
-remaining_ids = ids_dataset[~ids_dataset['photo_id'].isin(urls_dataset['photo_id'])]
+remaining_images = ids_dataset[~ids_dataset['photo_id'].isin(urls_dataset['photo_id'])]
 
-for index, photo in remaining_ids.iterrows():
+for index, photo in remaining_images.iterrows():
     url = None
     photo_id = str(photo['photo_id'])
     try:
