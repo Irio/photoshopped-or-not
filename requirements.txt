@@ -1,2 +1,3 @@
 flickrapi==2.1.2
 pandas==0.18.0
+tinys3==0.1.11

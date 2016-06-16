@@ -24,3 +24,5 @@ $ python 2_save_images.py psed_images.csv url psed
 $ python 2_save_images.py RAISE_1k.csv TIFF non-psed
 $ python 2_save_images.py reddit_psed_images.csv url psed-reddit
 ```
+
+Source of reddit dataset: https://www.reddit.com/r/photoshopbattles
