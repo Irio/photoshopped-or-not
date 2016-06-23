@@ -1,0 +1,14 @@
+probability == 100
+  'certain'
+probability in range(87, 99)
+  'almost certain'
+probability in range(65, 85)
+  'probable'
+probability in range(40, 60)
+  'chances about even'
+probability in range(20, 40)
+  'probably not'
+probability in range(2, 12)
+  'almost certainly not'
+probability == 0
+  'impossible'

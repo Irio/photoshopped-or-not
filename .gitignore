@@ -1,10 +1,4 @@
-.ipynb_checkpoints/
-__pycache__/
-non-psed/
-psed/
-psed-reddit/
-psed-by-email/
+__pycache__
+.ipynb_checkpoints
+data
 config.ini
-dataset.npz
-psed_images.csv
-reddit_psed_images.csv
